@@ -1,31 +1,63 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { mainNav } from "@/lib/nav";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname === href.split("#")[0];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-surface shadow-sm">
-      <div className="flex justify-between items-center px-4 md:px-10 py-4 max-w-[1200px] mx-auto">
+    <header
+      className={`fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-sm transition-shadow duration-200 ${
+        scrolled
+          ? "shadow-[0_2px_16px_rgba(11,31,58,0.08)]"
+          : "border-b border-outline-variant/20"
+      }`}
+    >
+      <div className="flex justify-between items-center px-4 md:px-10 py-3 max-w-[1200px] mx-auto">
         <Link
           href="/"
-          className="text-2xl font-bold text-primary hover:opacity-80 transition-opacity"
+          className="flex items-center hover:opacity-85 transition-opacity"
         >
-          MY Driving Academy
+          <Image
+            src="/logo.webp"
+            alt="MY Driving Academy"
+            width={1303}
+            height={434}
+            priority
+            className="h-9 md:h-10 w-auto"
+          />
         </Link>
 
         <nav
           aria-label="Main Navigation"
-          className="hidden md:flex gap-6 items-center"
+          className="hidden md:flex gap-8 items-center"
         >
           {mainNav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-on-surface-variant font-medium hover:text-secondary transition-colors duration-200"
+              aria-current={isActive(item.href) ? "page" : undefined}
+              className={`relative text-sm font-medium py-1 transition-colors duration-200 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-secondary after:transition-all after:duration-200 ${
+                isActive(item.href)
+                  ? "text-primary after:w-full"
+                  : "text-on-surface-variant hover:text-primary after:w-0 hover:after:w-full"
+              }`}
             >
               {item.label}
             </Link>
@@ -33,8 +65,8 @@ export default function Navbar() {
         </nav>
 
         <Link
-          href="/#contact"
-          className="hidden md:inline-flex bg-primary-container text-on-primary font-semibold text-sm px-6 py-3 rounded-lg hover:bg-primary transition-colors"
+          href="#contact"
+          className="hidden md:inline-flex items-center bg-primary-container text-on-primary font-semibold text-sm px-6 py-2.5 rounded-lg shadow-sm hover:bg-primary hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
         >
           Book Lessons
         </Link>
@@ -61,13 +93,18 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="text-on-surface-variant font-medium py-3 px-2 rounded-lg hover:bg-surface-container hover:text-secondary transition-colors"
+              aria-current={isActive(item.href) ? "page" : undefined}
+              className={`font-medium py-3 px-3 rounded-lg transition-colors ${
+                isActive(item.href)
+                  ? "bg-surface-container text-primary"
+                  : "text-on-surface-variant hover:bg-surface-container hover:text-secondary"
+              }`}
             >
               {item.label}
             </Link>
           ))}
           <Link
-            href="/#contact"
+            href="#contact"
             onClick={() => setOpen(false)}
             className="mt-2 inline-flex justify-center bg-primary-container text-on-primary font-semibold text-sm px-6 py-3 rounded-lg hover:bg-primary transition-colors"
           >

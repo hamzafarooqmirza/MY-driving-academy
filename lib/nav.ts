@@ -2,7 +2,12 @@ export const mainNav = [
   { label: "Home", href: "/" },
   { label: "About", href: "/#about" },
   { label: "Services", href: "/#services" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "#contact" },
+];
+
+export const legalNav = [
+  { label: "Terms of Service", href: "/terms" },
+  { label: "Privacy Policy", href: "/privacy" },
 ];
 
 export type Service = {

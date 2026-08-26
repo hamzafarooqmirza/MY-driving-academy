@@ -28,12 +28,13 @@ export default function Home() {
   return (
     <>
       <section className="relative w-full min-h-[80vh] flex items-center justify-center overflow-hidden bg-primary-container">
-        <div
-          className="absolute inset-0 opacity-40 mix-blend-overlay bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2gFehjTsRWv0JnW-8Av0D5bnMk-Frbiwm5cjTowAlALCXNFACQY5pdqu7HJe0u-XlGY5biBmWKX-gQVBy0UeyGbyd3LDugk5JsxeLckjbwIPyZWgrz6e06gN9IPN40bLKXdoApsQlw2DbKu1oAFgVHEfnOAOL385N4STCp4I_bJI0RQnTltg3fWJmyOkObzDsdpcAofAeYVi6rSMKYOQbi8UKT47pIyFTLwaRzQD9NMAlLB46W3nMQg')",
-          }}
+        <Image
+          src="/hero-banner.webp"
+          alt="A blue car with an MY Driving Academy L-plate parked on a sunlit residential street"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-40 mix-blend-overlay"
         />
         <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-10 text-center w-full py-24">
           <div className="inline-block bg-secondary-container/20 text-secondary-container px-4 py-2 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm border border-secondary-container/30">

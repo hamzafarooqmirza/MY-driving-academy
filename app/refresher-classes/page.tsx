@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Refresher Classes - MY Driving Academy",
+  title: "Refresher Classes",
   description:
     "Targeted sessions for drivers getting back on the road after a break. Patient, judgment-free instruction tailored to rebuild your confidence.",
 };
@@ -13,8 +13,8 @@ export default function RefresherClassesPage() {
       eyebrow="Get back behind the wheel safely"
       title="Refresher Classes"
       description="Targeted sessions for drivers getting back on the road after a break. Patient, judgment-free instruction tailored to rebuild your confidence at your own pace."
-      imageUrl="https://lh3.googleusercontent.com/aida-public/AB6AXuCeCZu4zC5y1dGUga8BNp_gHoFM3iPD2asu--H_4knjUb6Kt26fhWgz1m4ewsH6wFsULGmDP1no_6Gc6perbVCuz6xtSBdPWC5BNm_kE81U1iYdqnd-tdEL8rBZTHlYTNfs0sllnhDpUyHo370rCmiMdfH0-E5a4lChFj85_vtJhB9zyPtbl_Ya5tL9DXqLMkmy42ohbER3pxJXdf9DI8nqg6KvKjhmz8nmiHW8cVTKll_ebvKImN4SRA"
-      imageAlt="A mature adult driver looking confident and relaxed behind the wheel, accompanied by a calm instructor."
+      imageUrl="/refresher-classes.webp"
+      imageAlt="A mature adult student driving while a calm instructor chats with them in the passenger seat."
       includedSubtitle="Our refresher courses are designed to address your specific needs, focusing on the areas where you want to regain confidence."
       features={[
         {

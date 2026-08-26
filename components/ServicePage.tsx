@@ -66,7 +66,7 @@ export default function ServicePage({
               {description}
             </p>
             <Link
-              href="/#contact"
+              href="#contact"
               className="inline-flex items-center justify-center bg-secondary-container text-on-secondary-container font-semibold text-sm px-8 py-4 rounded-lg hover:-translate-y-1 hover:shadow-lg transition-all duration-300 w-full sm:w-auto"
             >
               Book This Course

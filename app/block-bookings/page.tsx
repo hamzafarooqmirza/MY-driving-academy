@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Block Bookings - MY Driving Academy",
+  title: "Block Bookings",
   description:
     "Book multiple driving lessons in advance at a discounted rate for steady progress and significant savings.",
 };
@@ -13,8 +13,8 @@ export default function BlockBookingsPage() {
       eyebrow="Premium tuition, exceptional value"
       title="Block Bookings"
       description="Book multiple lessons in advance at a discounted rate. Our most popular option for steady progress and significant savings, designed to provide consistent, high-quality instruction."
-      imageUrl="https://lh3.googleusercontent.com/aida-public/AB6AXuD0NeKUYtWYOldCDSOjv62z2PTPka7M1a7k34xXUxpYgtgoB5DQWeIM2WUY1jWuYU6AFeZiElUd8p_py9ZRsdvOqJWBdmkdtXteU6x7EcxB5Nf41Mg8ml4SdGqEQEZ3voZbJawlPV8HI15kUryVuoCB1yggGQ_J3_STz-5VVjjlb1JIh3bT0gIE6yGBztN-Bl0Xoc0YXiAiR6Tp3tsoSST_D0j3hjyh6wMAm6BT1t_ns1dyDRsj2tv1Kw"
-      imageAlt="A modern driving instructor showing a tablet with a progress chart to a young, focused student."
+      imageUrl="/block-bookings.webp"
+      imageAlt="A car dashboard with keys, a booking calendar, appointment cards, and a navy branded notebook."
       features={[
         {
           icon: "savings",

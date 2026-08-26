@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Motorway Lessons - MY Driving Academy",
+  title: "Motorway Lessons",
   description:
     "Specialized tuition for high-speed roads tailored for newly passed drivers looking to gain confidence on busy multi-lane networks.",
 };
@@ -13,8 +13,8 @@ export default function MotorwayLessonsPage() {
       eyebrow="Master high-speed driving"
       title="Motorway Lessons"
       description="Specialized tuition for high-speed roads tailored for newly passed drivers looking to gain confidence and ensure maximum safety on busy multi-lane networks."
-      imageUrl="https://lh3.googleusercontent.com/aida-public/AB6AXuAYAUAneA1cKNe81xR3Mhc_Djeu22E_Wq_bykDTUqqYjNbTjgSLeSWqZuy0A9iYLTTrOCUT-H_6GMCxi2K8I3-TFHGRUoInaX-cxzLzU9QMoKKYBDE9BCrVJ6-JBbrLkqfM9H9yqgi8-cByxDRYLzT9aL9VTqd2hK2o8c2O9YcO2P4myzYfQZ8xhn_o1XSFoVtoqzBDYJD1-v5IPxTpr4f1uRrZ8YoM8UekW0ekNMFuF7A8bQ3yW7wZWw"
-      imageAlt="A driving instructor guiding a student on a multi-lane motorway during daytime."
+      imageUrl="/motorway-lessons.webp"
+      imageAlt="A driver's-eye view of a car approaching a motorway slip road under a blue motorway sign."
       features={[
         {
           icon: "merge_type",
