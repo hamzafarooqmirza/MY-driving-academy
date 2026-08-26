@@ -33,7 +33,7 @@ export default function Navbar() {
         </nav>
 
         <Link
-          href="/#contact"
+          href="#contact"
           className="hidden md:inline-flex bg-primary-container text-on-primary font-semibold text-sm px-6 py-3 rounded-lg hover:bg-primary transition-colors"
         >
           Book Lessons
@@ -67,7 +67,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="/#contact"
+            href="#contact"
             onClick={() => setOpen(false)}
             className="mt-2 inline-flex justify-center bg-primary-container text-on-primary font-semibold text-sm px-6 py-3 rounded-lg hover:bg-primary transition-colors"
           >

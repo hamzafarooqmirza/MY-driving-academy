@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { mainNav } from "@/lib/nav";
+import { legalNav, mainNav } from "@/lib/nav";
 
 export default function Footer() {
   return (
@@ -29,18 +29,15 @@ export default function Footer() {
               {item.label}
             </Link>
           ))}
-          <Link
-            href="#"
-            className="text-sm text-on-primary-container/80 hover:text-secondary-fixed transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-fixed rounded-sm"
-          >
-            Terms of Service
-          </Link>
-          <Link
-            href="#"
-            className="text-sm text-on-primary-container/80 hover:text-secondary-fixed transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-fixed rounded-sm"
-          >
-            Privacy Policy
-          </Link>
+          {legalNav.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-sm text-on-primary-container/80 hover:text-secondary-fixed transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-fixed rounded-sm"
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
       </div>
     </footer>
