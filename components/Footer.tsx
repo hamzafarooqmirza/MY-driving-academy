@@ -40,7 +40,7 @@ export default function Footer() {
                 hello@mydrivingacademy.com
               </a>
               <a
-                href="tel:+44800000000"
+                href="tel:+448001234567"
                 className={`flex items-center gap-2 w-fit ${linkClasses}`}
               >
                 <span className="material-symbols-outlined text-[18px]">
