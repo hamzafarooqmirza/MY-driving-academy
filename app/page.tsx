@@ -162,31 +162,41 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
-              <div
+              <Link
                 key={service.slug}
-                className="bg-surface-container-lowest rounded-xl p-6 ambient-shadow hover-lift border border-outline-variant/30 flex flex-col h-full"
+                href={`/${service.slug}`}
+                className="group bg-surface-container-lowest rounded-xl overflow-hidden ambient-shadow hover-lift border border-outline-variant/30 flex flex-col h-full"
               >
-                <div className="w-12 h-12 bg-surface-container rounded-lg flex items-center justify-center text-primary-container mb-4">
-                  <span className="material-symbols-outlined">
-                    {service.icon}
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={service.image}
+                    alt={service.imageAlt}
+                    fill
+                    sizes="(min-width: 1200px) 380px, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-3 w-10 h-10 bg-surface/95 backdrop-blur-sm rounded-lg flex items-center justify-center text-primary-container shadow-sm">
+                    <span className="material-symbols-outlined text-xl">
+                      {service.icon}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl font-semibold text-on-surface mb-2">
+                    {service.name}
+                  </h3>
+                  <p className="text-on-surface-variant mb-6 flex-grow">
+                    {service.description}
+                  </p>
+                  <span className="text-primary-container font-semibold text-sm flex items-center gap-2 group-hover:text-secondary-container transition-colors mt-auto">
+                    Learn More
+                    <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">
+                      arrow_forward
+                    </span>
                   </span>
                 </div>
-                <h3 className="text-xl font-semibold text-on-surface mb-2">
-                  {service.name}
-                </h3>
-                <p className="text-on-surface-variant mb-6 flex-grow">
-                  {service.description}
-                </p>
-                <Link
-                  href={`/${service.slug}`}
-                  className="text-primary-container font-semibold text-sm flex items-center gap-2 hover:text-secondary-container transition-colors mt-auto"
-                >
-                  Learn More
-                  <span className="material-symbols-outlined text-sm">
-                    arrow_forward
-                  </span>
-                </Link>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
