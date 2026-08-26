@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Intensive Courses - MY Driving Academy",
+  title: "Intensive Courses",
   description:
     "Concentrated daily driving programs (3/5/7/10-day options) for rapid skill gain and quicker test dates.",
 };
@@ -13,8 +13,8 @@ export default function IntensiveCoursesPage() {
       eyebrow="Fast-track your driving success"
       title="Intensive Courses"
       description="Concentrated daily driving programs (3/5/7/10-day options) for rapid skill gain and quicker test dates. Perfect for those who need their license fast."
-      imageUrl="https://lh3.googleusercontent.com/aida-public/AB6AXuANuN3aPe2Bw5NlMntw7QHyl0sm4Ax7tjLtYcX7_sl16V3OFwfSt9Ceq2BwYZzn7VMfDYHYYB27Wyu4hvPAMZO-RZJLa4aMrt41VbzD7BzJjbnYYG1mjso4Bz-FdRlstYfBueRFT5AtIrBSbrpWrVF4IsKoQp7wLGtLDvCiBraLQgUflfIAvNO6qZp0kwQG9zR4EA7AZNJga5U7VvK6srHwoGw_9_LlO4PFsYrXaJNcM40TZvYFaPh8FQ"
-      imageAlt="A driving instructor explaining a maneuver to a young adult student inside a modern car."
+      imageUrl="/intensive-courses.webp"
+      imageAlt="A driver's-eye view approaching a busy roundabout with both hands on the steering wheel."
       includedSubtitle="Everything you need to succeed, packed into a focused timeframe."
       features={[
         {

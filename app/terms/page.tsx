@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Terms of Service - MY Driving Academy",
+  title: "Terms of Service",
   description: "The terms and conditions for booking lessons and courses with MY Driving Academy.",
 };
 

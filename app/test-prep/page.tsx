@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ServicePage from "@/components/ServicePage";
 
 export const metadata: Metadata = {
-  title: "Test Preparation - MY Driving Academy",
+  title: "Test Preparation",
   description:
     "Mock practical tests and intensive theory preparation to ensure you are 100% ready for the big day.",
 };
@@ -13,8 +13,8 @@ export default function TestPrepPage() {
       eyebrow="Enter your test with confidence"
       title="Test Preparation"
       description="Mock practical tests and intensive theory preparation to ensure you are 100% ready for the big day."
-      imageUrl="https://lh3.googleusercontent.com/aida-public/AB6AXuChCRQHbfA3_pJEsX7DjvMp-68qoxxlo-rlD5EcrBMUc55ssd2cxdFz86bDx8UlGumYX2clnR3HzYhf8_e4fzalMRt4MTTHohp4rKtyDLR7AI56qAZ75gjHTKt2-fEzgVWJIXo1zPBjBfrDy2BLZhbPNFohZOsSgyXPWZwa2Wj_7o1XeDGkTzdpWocTsF-P5T7mmxbeY7FzFzSUbqz3f2yz5y5CsDeQU041i3s5gyy8mz6OjikT5vdjHg"
-      imageAlt="A confident young student driver smiling behind the wheel, accompanied by a calm instructor with a clipboard."
+      imageUrl="/test-prep.webp"
+      imageAlt="A student sitting in a car reading a driving theory book outside a driving test centre."
       includedSubtitle="Comprehensive preparation tailored to help you pass with flying colors."
       features={[
         {

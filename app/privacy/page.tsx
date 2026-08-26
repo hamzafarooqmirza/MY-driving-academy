@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy - MY Driving Academy",
+  title: "Privacy Policy",
   description: "How MY Driving Academy collects, uses, and protects your personal information.",
 };
 
