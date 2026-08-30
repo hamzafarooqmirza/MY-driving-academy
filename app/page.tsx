@@ -32,6 +32,69 @@ const stats = [
   { value: "7", label: "Days a Week" },
 ];
 
+const journeySteps = [
+  {
+    icon: "event_available",
+    title: "Book",
+    body: "Simple online booking or a quick phone call.",
+  },
+  {
+    icon: "person",
+    title: "Meet Instructor",
+    body: "We pick you up for your first orientation drive.",
+  },
+  {
+    icon: "directions_car",
+    title: "Practice",
+    body: "Build real-road confidence with structured, progressive lessons.",
+  },
+  {
+    icon: "workspace_premium",
+    title: "Pass",
+    body: "Ace your practical test with our expert preparation.",
+  },
+  {
+    icon: "explore",
+    title: "Drive Independently",
+    body: "Freedom of the road starts here.",
+  },
+];
+
+const galleryImages = [
+  {
+    src: "/driving-lessons.webp",
+    alt: "A driving instructor smiling while a young student confidently drives.",
+    label: "Driving Lessons",
+    wide: true,
+  },
+  {
+    src: "/hero-banner.webp",
+    alt: "A blue car with an MY Driving Academy L-plate parked on a sunlit residential street.",
+    label: "Our Fleet",
+  },
+  {
+    src: "/test-prep.webp",
+    alt: "A student sitting in a car reading a driving theory book outside a test centre.",
+    label: "Test Preparation",
+  },
+  {
+    src: "/motorway-lessons.webp",
+    alt: "A driver's-eye view of a car approaching a motorway slip road.",
+    label: "Motorway Lessons",
+  },
+  {
+    src: "/block-bookings.webp",
+    alt: "A car dashboard with keys, a booking calendar, and a navy branded notebook.",
+    label: "Block Bookings",
+  },
+  {
+    src: "/refresher-classes.webp",
+    alt: "A mature adult student driving while a calm instructor chats with them.",
+    label: "Refresher Classes",
+    wide: true,
+  },
+];
+
 export default function Home() {
   return (
     <>
@@ -227,24 +290,164 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        className="py-16 max-w-[1200px] mx-auto px-4 md:px-10"
-        id="contact"
-      >
-        <div className="bg-primary-container rounded-2xl p-8 md:p-16 text-center ambient-shadow">
-          <h2 className="text-3xl font-bold text-on-primary-container mb-4">
-            Ready to book your first lesson?
+      <section className="py-20 md:py-24 bg-surface-container-low">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-10">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-3">
+              How It Works
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-container mb-4">
+              Your Journey to Success
+            </h2>
+            <p className="text-on-surface-variant">
+              A clear, structured path to gaining your full UK driving
+              license with confidence.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-4 items-stretch">
+            {journeySteps.map((step, index) => (
+              <div
+                key={step.title}
+                className={`relative flex ${
+                  index === journeySteps.length - 1
+                    ? "col-span-2 sm:col-span-1"
+                    : ""
+                }`}
+              >
+                <div className="bg-surface rounded-xl p-6 ambient-shadow hover-lift border border-outline-variant/30 flex flex-col items-center text-center w-full">
+                  <div className="relative mb-4">
+                    <div className="w-14 h-14 rounded-2xl bg-secondary-container/15 text-secondary flex items-center justify-center">
+                      <span className="material-symbols-outlined text-2xl">
+                        {step.icon}
+                      </span>
+                    </div>
+                    <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-primary-container text-on-primary text-xs font-bold flex items-center justify-center">
+                      {index + 1}
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-bold text-primary-container mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-on-surface-variant leading-relaxed">
+                    {step.body}
+                  </p>
+                </div>
+                {index < journeySteps.length - 1 && (
+                  <span className="hidden lg:flex absolute top-1/2 -right-4 -translate-y-1/2 z-10 text-outline-variant">
+                    <span className="material-symbols-outlined">
+                      arrow_forward
+                    </span>
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-24">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-10">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-3">
+              Gallery
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-container mb-4">
+              Life at MY Driving Academy
+            </h2>
+            <p className="text-on-surface-variant">
+              A look at our students, instructors, and vehicles out on the
+              road.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[160px] md:auto-rows-[200px]">
+            {galleryImages.map((image) => (
+              <div
+                key={image.src}
+                className={`group relative rounded-xl overflow-hidden ambient-shadow ${
+                  image.wide ? "col-span-2 row-span-2" : ""
+                }`}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  sizes={
+                    image.wide
+                      ? "(min-width: 768px) 50vw, 100vw"
+                      : "(min-width: 768px) 25vw, 50vw"
+                  }
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/0 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300" />
+                <p className="absolute bottom-3 left-4 text-on-primary font-semibold text-sm md:text-base drop-shadow-sm">
+                  {image.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative py-20 md:py-28 overflow-hidden" id="contact">
+        <Image
+          src="/motorway-lessons.webp"
+          alt="A driver's-eye view of a car approaching a motorway slip road."
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/95 via-primary-container/90 to-primary/95" />
+        <div className="relative z-10 max-w-[800px] mx-auto px-4 md:px-10 text-center">
+          <span className="inline-block bg-secondary-container/20 text-secondary-container px-4 py-2 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm border border-secondary-container/30">
+            Start Today
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold text-on-primary mb-5 leading-tight">
+            Ready to Start Your Driving Journey?
           </h2>
-          <p className="text-lg text-on-primary-container/80 mb-8 max-w-xl mx-auto">
+          <p className="text-lg text-on-primary/85 mb-10 max-w-xl mx-auto">
             Get in touch and one of our friendly instructors will help you
-            find the right course to get you on the road.
+            find the right course to get you on the road with confidence.
           </p>
-          <a
-            href="mailto:hello@mydrivingacademy.com"
-            className="inline-flex items-center justify-center bg-secondary-container text-on-secondary-container font-semibold text-sm px-8 py-4 rounded-lg hover:bg-secondary-fixed-dim transition-colors shadow-sm"
-          >
-            Contact Us
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-14">
+            <a
+              href="mailto:hello@mydrivingacademy.com"
+              className="inline-flex items-center justify-center bg-secondary-container text-on-secondary-container font-semibold text-sm px-8 py-4 rounded-lg hover:bg-secondary-fixed-dim hover:-translate-y-0.5 transition-all duration-200 shadow-lg w-full sm:w-auto"
+            >
+              Book Your First Lesson
+              <span className="material-symbols-outlined ml-2 text-lg">
+                calendar_month
+              </span>
+            </a>
+            <a
+              href="tel:+448001234567"
+              className="inline-flex items-center justify-center border-2 border-on-primary/40 text-on-primary font-semibold text-sm px-8 py-4 rounded-lg hover:bg-on-primary/10 hover:border-on-primary transition-colors w-full sm:w-auto"
+            >
+              <span className="material-symbols-outlined mr-2 text-lg">
+                call
+              </span>
+              0800 123 4567
+            </a>
+          </div>
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 pt-8 border-t border-on-primary/15">
+            {[
+              { icon: "verified", label: "DVSA-Qualified" },
+              { icon: "military_tech", label: "98% Pass Rate" },
+              { icon: "directions_car", label: "Dual-Control Cars" },
+              { icon: "schedule", label: "7 Days a Week" },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="flex items-center gap-2 text-on-primary/80 text-sm font-medium"
+              >
+                <span className="material-symbols-outlined text-secondary-container text-lg">
+                  {item.icon}
+                </span>
+                {item.label}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>
