@@ -2,26 +2,34 @@ import Image from "next/image";
 import Link from "next/link";
 import { services } from "@/lib/nav";
 
-const features = [
-  { icon: "workspace_premium", label: "Qualified Instructors" },
-  { icon: "spa", label: "Stress-Free Learning" },
-  { icon: "directions_car", label: "Dual-Control Cars" },
-  { icon: "schedule", label: "Extended Hours", sub: "7AM - 11PM" },
-];
-
 const whyUs = [
   {
-    title: "Safety First Approach",
-    body: "Comprehensive hazard perception and defensive driving techniques.",
+    icon: "workspace_premium",
+    title: "DVSA-Qualified Instructors",
+    body: "Patient, expert instructors dedicated to your safety and success behind the wheel.",
   },
   {
-    title: "Patient Instruction",
-    body: "Tailored learning pace suitable for nervous beginners.",
+    icon: "spa",
+    title: "Stress-Free, Patient Learning",
+    body: "A tailored pace with comprehensive hazard perception and defensive driving techniques.",
   },
   {
-    title: "Modern Vehicles",
-    body: "Learn in highly maintained, easy-to-drive modern cars with dual controls.",
+    icon: "directions_car",
+    title: "Modern Dual-Control Vehicles",
+    body: "Learn in highly maintained, easy-to-drive modern cars fitted with dual controls.",
   },
+  {
+    icon: "schedule",
+    title: "Extended Hours, 7 Days a Week",
+    body: "Flexible lesson times from 7AM to 11PM, built around your schedule.",
+  },
+];
+
+const stats = [
+  { value: "10+", label: "Years Experience" },
+  { value: "500+", label: "Students Trained" },
+  { value: "98%", label: "Pass Rate" },
+  { value: "7", label: "Days a Week" },
 ];
 
 export default function Home() {
@@ -81,77 +89,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-12 bg-surface-container-lowest -mt-8 relative z-20 mx-4 md:mx-10 rounded-xl ambient-shadow max-w-[1200px] xl:mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 px-6 md:px-12">
-          {features.map((f) => (
-            <div
-              key={f.label}
-              className="flex flex-col items-center text-center"
-            >
-              <div className="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center text-primary-container mb-4">
-                <span className="material-symbols-outlined fill text-3xl">
-                  {f.icon}
-                </span>
-              </div>
-              <h3 className="font-semibold text-sm text-on-surface">
-                {f.label}
-              </h3>
-              {f.sub && (
-                <p className="text-xs text-on-surface-variant mt-1">
-                  {f.sub}
-                </p>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section
-        className="py-16 my-12 max-w-[1200px] mx-auto px-4 md:px-10"
-        id="about"
+        className="py-12 bg-surface-container-lowest -mt-8 relative z-20 mx-4 md:mx-10 rounded-xl ambient-shadow max-w-[1200px] xl:mx-auto"
+        id="services"
       >
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div className="order-2 md:order-1 rounded-2xl overflow-hidden ambient-shadow h-[400px] relative">
-            <Image
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG5giAMKkdorzjqPawVrA_KDCfGNpG1a2TB7FZ549-6ExoXY71L-mJycfPBY8cvH6FiOojGdU26VAQWSURyF9hkEC90Z19YMN5cJnJOJ8nA0C4lYT1LqFj6zf2T8fj_CmEWMHr14cxS9lMQi35EE0ybB8kG-goLh5YJ4NJg_p0mZI8dqJONAIm0TfItNg0YozTlptNlr9EJlrSdmUnd2_GdMpfqxv98tpDxgTU8AMTsgoE7jy6B53OvQ"
-              alt="A friendly driving instructor sitting in the passenger seat, encouraging a student driver."
-              fill
-              sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="order-1 md:order-2">
-            <h2 className="text-3xl font-bold text-primary-container mb-6">
-              MY Driving Academy: Your Path to Independent Driving
-            </h2>
-            <p className="text-on-surface-variant mb-8">
-              We believe that learning to drive should be an exciting and
-              empowering experience. Our curriculum is designed not just to
-              help you pass your test, but to make you a safe, confident
-              driver for life.
-            </p>
-            <ul className="space-y-4">
-              {whyUs.map((item) => (
-                <li key={item.title} className="flex items-start gap-3">
-                  <span className="material-symbols-outlined text-secondary-container mt-1">
-                    check_circle
-                  </span>
-                  <div>
-                    <strong className="text-on-surface block mb-1">
-                      {item.title}
-                    </strong>
-                    <p className="text-on-surface-variant">{item.body}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-surface-container-low" id="services">
-        <div className="max-w-[1200px] mx-auto px-4 md:px-10">
-          <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+          <div className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="text-3xl font-bold text-primary-container mb-4">
               Our Services
             </h2>
@@ -165,7 +108,7 @@ export default function Home() {
               <Link
                 key={service.slug}
                 href={`/${service.slug}`}
-                className="group bg-surface-container-lowest rounded-xl overflow-hidden ambient-shadow hover-lift border border-outline-variant/30 flex flex-col h-full"
+                className="group bg-surface-container-low rounded-xl overflow-hidden ambient-shadow hover-lift border border-outline-variant/30 flex flex-col h-full"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
@@ -199,6 +142,88 @@ export default function Home() {
               </Link>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section
+        className="py-20 md:py-24 max-w-[1200px] mx-auto px-4 md:px-10"
+        id="about"
+      >
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <span className="inline-block bg-surface-container-high text-primary font-semibold text-sm px-4 py-2 rounded-full mb-4 border border-surface-dim">
+            Why Choose Us
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-container mb-4">
+            The Trusted Way to Learn to Drive
+          </h2>
+          <p className="text-on-surface-variant">
+            We believe learning to drive should be an exciting, empowering
+            experience. Our curriculum is designed not just to help you pass
+            your test, but to make you a safe, confident driver for life.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="relative">
+            <div className="rounded-2xl overflow-hidden ambient-shadow h-[320px] sm:h-[420px] relative">
+              <Image
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG5giAMKkdorzjqPawVrA_KDCfGNpG1a2TB7FZ549-6ExoXY71L-mJycfPBY8cvH6FiOojGdU26VAQWSURyF9hkEC90Z19YMN5cJnJOJ8nA0C4lYT1LqFj6zf2T8fj_CmEWMHr14cxS9lMQi35EE0ybB8kG-goLh5YJ4NJg_p0mZI8dqJONAIm0TfItNg0YozTlptNlr9EJlrSdmUnd2_GdMpfqxv98tpDxgTU8AMTsgoE7jy6B53OvQ"
+                alt="A friendly driving instructor sitting in the passenger seat, encouraging a student driver."
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="hidden sm:flex absolute -bottom-6 -right-6 items-center gap-3 bg-surface rounded-xl ambient-shadow border border-outline-variant/30 px-5 py-4">
+              <div className="w-11 h-11 rounded-full bg-secondary-container/20 text-secondary flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined fill">
+                  military_tech
+                </span>
+              </div>
+              <div>
+                <p className="text-lg font-bold text-primary-container leading-none">
+                  98%
+                </p>
+                <p className="text-xs text-on-surface-variant mt-1">
+                  First-Time Pass Rate
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-5">
+            {whyUs.map((item) => (
+              <div
+                key={item.title}
+                className="bg-surface rounded-xl p-6 ambient-shadow hover-lift border border-outline-variant/30"
+              >
+                <div className="w-11 h-11 rounded-lg bg-surface-container flex items-center justify-center text-primary-container mb-4">
+                  <span className="material-symbols-outlined">
+                    {item.icon}
+                  </span>
+                </div>
+                <h3 className="font-semibold text-on-surface mb-1.5">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-on-surface-variant leading-relaxed">
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-16 pt-10 border-t border-outline-variant/30 grid grid-cols-2 md:grid-cols-4 gap-8">
+          {stats.map((stat) => (
+            <div key={stat.label} className="text-center">
+              <p className="text-3xl md:text-4xl font-bold text-primary-container">
+                {stat.value}
+              </p>
+              <p className="text-sm text-on-surface-variant mt-1">
+                {stat.label}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
