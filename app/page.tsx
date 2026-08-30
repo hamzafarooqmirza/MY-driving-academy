@@ -98,47 +98,95 @@ const galleryImages = [
 export default function Home() {
   return (
     <>
-      <section className="relative w-full min-h-[80vh] flex items-center justify-center overflow-hidden bg-primary-container">
-        <Image
-          src="/hero-banner.webp"
-          alt="A blue car with an MY Driving Academy L-plate parked on a sunlit residential street"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover opacity-40 mix-blend-overlay"
+      <section className="relative w-full overflow-hidden bg-primary-container py-20 md:py-28 lg:py-32">
+        <div
+          className="absolute -top-24 -left-24 w-96 h-96 bg-secondary/20 rounded-full blur-3xl pointer-events-none"
+          aria-hidden="true"
         />
-        <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-10 text-center w-full py-24">
-          <div className="inline-block bg-secondary-container/20 text-secondary-container px-4 py-2 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm border border-secondary-container/30">
-            Premium Driving Tuition
+        <div
+          className="absolute -bottom-32 -right-24 w-[28rem] h-[28rem] bg-primary-fixed/10 rounded-full blur-3xl pointer-events-none"
+          aria-hidden="true"
+        />
+
+        <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="text-center lg:text-left">
+              <div className="inline-block bg-secondary-container/20 text-secondary-container px-4 py-2 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm border border-secondary-container/30">
+                Premium Driving Tuition · Leicester, UK
+              </div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-on-primary mb-6 leading-tight">
+                Learn to Drive with{" "}
+                <span className="text-secondary-container">Confidence</span>
+              </h1>
+              <p className="text-lg text-on-primary/85 max-w-xl mx-auto lg:mx-0 mb-8">
+                Ready to start your driving journey? At MY Driving Academy, we
+                make learning smooth, enjoyable, and stress-free from day
+                one. Our expert instructors guide you step by step.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-8">
+                <Link
+                  href="#contact"
+                  className="bg-secondary-container text-on-secondary-fixed-variant font-semibold text-sm px-8 py-4 rounded-lg hover:bg-secondary-fixed-dim hover:-translate-y-0.5 transition-all duration-200 w-full sm:w-auto text-center shadow-lg"
+                >
+                  Start Your Journey
+                </Link>
+                <Link
+                  href="#services"
+                  className="border-2 border-on-primary/50 text-on-primary font-semibold text-sm px-8 py-4 rounded-lg hover:bg-on-primary/10 hover:border-on-primary transition-colors w-full sm:w-auto text-center"
+                >
+                  Explore Services
+                </Link>
+              </div>
+              <div className="flex items-center justify-center lg:justify-start gap-2">
+                <div className="flex text-secondary-container">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <span key={i} className="material-symbols-outlined fill text-lg">
+                      star
+                    </span>
+                  ))}
+                </div>
+                <p className="text-sm text-on-primary/80">
+                  <span className="font-semibold text-on-primary">4.9/5</span>{" "}
+                  from 500+ students trained
+                </p>
+              </div>
+            </div>
+
+            <div className="relative w-full max-w-md mx-auto lg:max-w-none">
+              <div className="relative rounded-2xl overflow-hidden ambient-shadow aspect-[4/5] sm:aspect-[5/4]">
+                <Image
+                  src="/hero-banner.webp"
+                  alt="A blue car with an MY Driving Academy L-plate parked on a sunlit residential street"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-transparent" />
+              </div>
+              <div className="hidden sm:flex absolute -bottom-6 -left-6 items-center gap-3 bg-surface rounded-xl ambient-shadow border border-outline-variant/30 px-5 py-4">
+                <div className="w-11 h-11 rounded-full bg-secondary-container/20 text-secondary flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined fill">
+                    workspace_premium
+                  </span>
+                </div>
+                <div>
+                  <p className="text-lg font-bold text-primary-container leading-none">
+                    10+ Years
+                  </p>
+                  <p className="text-xs text-on-surface-variant mt-1">
+                    of Driving Excellence
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-on-primary mb-6 max-w-4xl mx-auto leading-tight">
-            Learn to Drive with{" "}
-            <span className="text-secondary-container">Confidence</span>
-          </h1>
-          <p className="text-lg text-on-primary/90 max-w-2xl mx-auto mb-10">
-            Ready to start your driving journey? At MY Driving Academy, we
-            make learning smooth, enjoyable, and stress-free from day one.
-            Our expert instructors guide you step by step.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Link
-              href="#contact"
-              className="bg-secondary-container text-on-secondary-fixed-variant font-semibold text-sm px-8 py-4 rounded-lg hover:bg-secondary-fixed-dim transition-colors w-full sm:w-auto text-center shadow-lg"
-            >
-              Start Your Journey
-            </Link>
-            <Link
-              href="#services"
-              className="border-2 border-on-primary text-on-primary font-semibold text-sm px-8 py-4 rounded-lg hover:bg-on-primary/10 transition-colors w-full sm:w-auto text-center"
-            >
-              Explore Services
-            </Link>
-          </div>
-          <div className="pt-8 border-t border-on-primary/20">
+
+          <div className="mt-16 lg:mt-20 pt-8 border-t border-on-primary/15 text-center lg:text-left">
             <p className="text-xs font-semibold text-on-primary/70 mb-4 uppercase tracking-wider">
               Fast-Track Intensive Courses Available
             </p>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-3">
               {["3 Days", "5 Days", "7 Days", "10 Days"].map((d) => (
                 <span
                   key={d}
