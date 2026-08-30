@@ -58,7 +58,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-screen flex flex-col font-sans antialiased text-on-background bg-background">
         <Navbar />
-        <main className="flex-grow pt-[72px]">{children}</main>
+        <main className="flex-grow pt-[68px] md:pt-[84px]">{children}</main>
         <Footer />
       </body>
     </html>
