@@ -15,23 +15,20 @@ export default function Reveal({
   delay = 0,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  // Default to visible: this is what server-rendered HTML ships, and what
+  // stays in effect if JS never loads/hydrates. Only once the observer
+  // below confirms (client-side) that the element is currently off-screen
+  // do we hide it, so it can then animate in on scroll.
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const node = ref.current;
-    if (!node) return;
-
-    if (typeof IntersectionObserver === "undefined") {
-      const frame = requestAnimationFrame(() => setVisible(true));
-      return () => cancelAnimationFrame(frame);
-    }
+    if (!node || typeof IntersectionObserver === "undefined") return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
+        setVisible(entry.isIntersecting);
+        if (entry.isIntersecting) observer.disconnect();
       },
       { threshold: 0.15, rootMargin: "0px 0px -60px 0px" },
     );
