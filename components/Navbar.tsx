@@ -29,7 +29,7 @@ export default function Navbar() {
           : "border-b border-outline-variant/20"
       }`}
     >
-      <div className="flex justify-between items-center px-4 md:px-10 py-3 max-w-[1200px] mx-auto">
+      <div className="flex justify-between items-center px-4 md:px-10 py-2.5 max-w-[1200px] mx-auto">
         <Link
           href="/"
           className="flex items-center hover:opacity-85 transition-opacity"
@@ -40,7 +40,7 @@ export default function Navbar() {
             width={1303}
             height={434}
             priority
-            className="h-9 md:h-10 w-auto"
+            className="h-12 md:h-16 w-auto"
           />
         </Link>
 

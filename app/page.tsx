@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Reveal from "@/components/Reveal";
 import { services } from "@/lib/nav";
 
 const whyUs = [
@@ -205,7 +206,7 @@ export default function Home() {
         id="services"
       >
         <div className="max-w-[1200px] mx-auto px-6 md:px-12">
-          <div className="text-center max-w-2xl mx-auto mb-10">
+          <Reveal className="text-center max-w-2xl mx-auto mb-10">
             <h2 className="text-3xl font-bold text-primary-container mb-4">
               Our Services
             </h2>
@@ -213,134 +214,146 @@ export default function Home() {
               Comprehensive tuition packages designed to suit every
               learner&apos;s needs, schedule, and experience level.
             </p>
-          </div>
+          </Reveal>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service) => (
-              <Link
-                key={service.slug}
-                href={`/${service.slug}`}
-                className="group bg-surface-container-low rounded-xl overflow-hidden ambient-shadow hover-lift border border-outline-variant/30 flex flex-col h-full"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.imageAlt}
-                    fill
-                    sizes="(min-width: 1200px) 380px, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-3 w-10 h-10 bg-surface/95 backdrop-blur-sm rounded-lg flex items-center justify-center text-primary-container shadow-sm">
-                    <span className="material-symbols-outlined text-xl">
-                      {service.icon}
+            {services.map((service, index) => (
+              <Reveal key={service.slug} delay={(index % 3) * 100}>
+                <Link
+                  href={`/${service.slug}`}
+                  className="group bg-surface-container-low rounded-xl overflow-hidden ambient-shadow hover-lift border border-outline-variant/30 flex flex-col h-full"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.imageAlt}
+                      fill
+                      sizes="(min-width: 1200px) 380px, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 left-3 w-10 h-10 bg-surface/95 backdrop-blur-sm rounded-lg flex items-center justify-center text-primary-container shadow-sm">
+                      <span className="material-symbols-outlined text-xl">
+                        {service.icon}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="text-xl font-semibold text-on-surface mb-2">
+                      {service.name}
+                    </h3>
+                    <p className="text-on-surface-variant mb-6 flex-grow">
+                      {service.description}
+                    </p>
+                    <span className="text-primary-container font-semibold text-sm flex items-center gap-2 group-hover:text-secondary-container transition-colors mt-auto">
+                      Learn More
+                      <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">
+                        arrow_forward
+                      </span>
                     </span>
                   </div>
-                </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-semibold text-on-surface mb-2">
-                    {service.name}
-                  </h3>
-                  <p className="text-on-surface-variant mb-6 flex-grow">
-                    {service.description}
-                  </p>
-                  <span className="text-primary-container font-semibold text-sm flex items-center gap-2 group-hover:text-secondary-container transition-colors mt-auto">
-                    Learn More
-                    <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">
-                      arrow_forward
-                    </span>
-                  </span>
-                </div>
-              </Link>
+                </Link>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       <section
-        className="py-20 md:py-24 max-w-[1200px] mx-auto px-4 md:px-10"
+        className="relative py-20 md:py-24 bg-primary-container overflow-hidden"
         id="about"
       >
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="inline-block bg-surface-container-high text-primary font-semibold text-sm px-4 py-2 rounded-full mb-4 border border-surface-dim">
-            Why Choose Us
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-container mb-4">
-            The Trusted Way to Learn to Drive
-          </h2>
-          <p className="text-on-surface-variant">
-            We believe learning to drive should be an exciting, empowering
-            experience. Our curriculum is designed not just to help you pass
-            your test, but to make you a safe, confident driver for life.
-          </p>
-        </div>
+        <div
+          className="absolute -top-24 -right-24 w-96 h-96 bg-secondary/15 rounded-full blur-3xl pointer-events-none"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary-fixed/10 rounded-full blur-3xl pointer-events-none"
+          aria-hidden="true"
+        />
 
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          <div className="relative">
-            <div className="rounded-2xl overflow-hidden ambient-shadow h-[320px] sm:h-[420px] relative">
-              <Image
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG5giAMKkdorzjqPawVrA_KDCfGNpG1a2TB7FZ549-6ExoXY71L-mJycfPBY8cvH6FiOojGdU26VAQWSURyF9hkEC90Z19YMN5cJnJOJ8nA0C4lYT1LqFj6zf2T8fj_CmEWMHr14cxS9lMQi35EE0ybB8kG-goLh5YJ4NJg_p0mZI8dqJONAIm0TfItNg0YozTlptNlr9EJlrSdmUnd2_GdMpfqxv98tpDxgTU8AMTsgoE7jy6B53OvQ"
-                alt="A friendly driving instructor sitting in the passenger seat, encouraging a student driver."
-                fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="hidden sm:flex absolute -bottom-6 -right-6 items-center gap-3 bg-surface rounded-xl ambient-shadow border border-outline-variant/30 px-5 py-4">
-              <div className="w-11 h-11 rounded-full bg-secondary-container/20 text-secondary flex items-center justify-center shrink-0">
-                <span className="material-symbols-outlined fill">
-                  military_tech
-                </span>
+        <div className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-10">
+          <Reveal className="text-center max-w-2xl mx-auto mb-14">
+            <span className="inline-block bg-secondary-container/20 text-secondary-container px-4 py-2 rounded-full text-sm font-semibold mb-4 backdrop-blur-sm border border-secondary-container/30">
+              Why Choose Us
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-on-primary mb-4">
+              The Trusted Way to Learn to Drive
+            </h2>
+            <p className="text-on-primary/75">
+              We believe learning to drive should be an exciting, empowering
+              experience. Our curriculum is designed not just to help you
+              pass your test, but to make you a safe, confident driver for
+              life.
+            </p>
+          </Reveal>
+
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <Reveal className="relative">
+              <div className="rounded-2xl overflow-hidden ambient-shadow h-[320px] sm:h-[420px] relative">
+                <Image
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG5giAMKkdorzjqPawVrA_KDCfGNpG1a2TB7FZ549-6ExoXY71L-mJycfPBY8cvH6FiOojGdU26VAQWSURyF9hkEC90Z19YMN5cJnJOJ8nA0C4lYT1LqFj6zf2T8fj_CmEWMHr14cxS9lMQi35EE0ybB8kG-goLh5YJ4NJg_p0mZI8dqJONAIm0TfItNg0YozTlptNlr9EJlrSdmUnd2_GdMpfqxv98tpDxgTU8AMTsgoE7jy6B53OvQ"
+                  alt="A friendly driving instructor sitting in the passenger seat, encouraging a student driver."
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
               </div>
-              <div>
-                <p className="text-lg font-bold text-primary-container leading-none">
-                  98%
-                </p>
-                <p className="text-xs text-on-surface-variant mt-1">
-                  First-Time Pass Rate
-                </p>
+              <div className="hidden sm:flex absolute -bottom-6 -right-6 items-center gap-3 bg-surface rounded-xl ambient-shadow border border-outline-variant/30 px-5 py-4">
+                <div className="w-11 h-11 rounded-full bg-secondary-container/20 text-secondary flex items-center justify-center shrink-0">
+                  <span className="material-symbols-outlined fill">
+                    military_tech
+                  </span>
+                </div>
+                <div>
+                  <p className="text-lg font-bold text-primary-container leading-none">
+                    98%
+                  </p>
+                  <p className="text-xs text-on-surface-variant mt-1">
+                    First-Time Pass Rate
+                  </p>
+                </div>
               </div>
+            </Reveal>
+
+            <div className="grid sm:grid-cols-2 gap-5">
+              {whyUs.map((item, index) => (
+                <Reveal key={item.title} delay={index * 100}>
+                  <div className="h-full bg-surface/10 backdrop-blur-sm rounded-xl p-6 border border-on-primary/10 hover:bg-surface/15 hover:-translate-y-1 transition-all duration-300">
+                    <div className="w-11 h-11 rounded-lg bg-secondary-container/15 flex items-center justify-center text-secondary-container mb-4">
+                      <span className="material-symbols-outlined">
+                        {item.icon}
+                      </span>
+                    </div>
+                    <h3 className="font-semibold text-on-primary mb-1.5">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-on-primary/70 leading-relaxed">
+                      {item.body}
+                    </p>
+                  </div>
+                </Reveal>
+              ))}
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-5">
-            {whyUs.map((item) => (
-              <div
-                key={item.title}
-                className="bg-surface rounded-xl p-6 ambient-shadow hover-lift border border-outline-variant/30"
-              >
-                <div className="w-11 h-11 rounded-lg bg-surface-container flex items-center justify-center text-primary-container mb-4">
-                  <span className="material-symbols-outlined">
-                    {item.icon}
-                  </span>
-                </div>
-                <h3 className="font-semibold text-on-surface mb-1.5">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-on-surface-variant leading-relaxed">
-                  {item.body}
+          <Reveal className="mt-16 pt-10 border-t border-on-primary/15 grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat) => (
+              <div key={stat.label} className="text-center">
+                <p className="text-3xl md:text-4xl font-bold text-secondary-container">
+                  {stat.value}
+                </p>
+                <p className="text-sm text-on-primary/70 mt-1">
+                  {stat.label}
                 </p>
               </div>
             ))}
-          </div>
-        </div>
-
-        <div className="mt-16 pt-10 border-t border-outline-variant/30 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat) => (
-            <div key={stat.label} className="text-center">
-              <p className="text-3xl md:text-4xl font-bold text-primary-container">
-                {stat.value}
-              </p>
-              <p className="text-sm text-on-surface-variant mt-1">
-                {stat.label}
-              </p>
-            </div>
-          ))}
+          </Reveal>
         </div>
       </section>
 
       <section className="py-20 md:py-24 bg-surface-container-low">
         <div className="max-w-[1200px] mx-auto px-4 md:px-10">
-          <div className="text-center max-w-2xl mx-auto mb-16">
+          <Reveal className="text-center max-w-2xl mx-auto mb-16">
             <p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-3">
               How It Works
             </p>
@@ -351,7 +364,7 @@ export default function Home() {
               A clear, structured path to gaining your full UK driving
               license with confidence.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-4 items-stretch">
             {journeySteps.map((step, index) => (
@@ -363,24 +376,26 @@ export default function Home() {
                     : ""
                 }`}
               >
-                <div className="bg-surface rounded-xl p-6 ambient-shadow hover-lift border border-outline-variant/30 flex flex-col items-center text-center w-full">
-                  <div className="relative mb-4">
-                    <div className="w-14 h-14 rounded-2xl bg-secondary-container/15 text-secondary flex items-center justify-center">
-                      <span className="material-symbols-outlined text-2xl">
-                        {step.icon}
-                      </span>
+                <Reveal delay={index * 100} className="w-full">
+                  <div className="bg-surface rounded-xl p-6 ambient-shadow hover-lift border border-outline-variant/30 flex flex-col items-center text-center w-full">
+                    <div className="relative mb-4">
+                      <div className="w-14 h-14 rounded-2xl bg-secondary-container/15 text-secondary flex items-center justify-center">
+                        <span className="material-symbols-outlined text-2xl">
+                          {step.icon}
+                        </span>
+                      </div>
+                      <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-primary-container text-on-primary text-xs font-bold flex items-center justify-center">
+                        {index + 1}
+                      </div>
                     </div>
-                    <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-primary-container text-on-primary text-xs font-bold flex items-center justify-center">
-                      {index + 1}
-                    </div>
+                    <h3 className="text-lg font-bold text-primary-container mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm text-on-surface-variant leading-relaxed">
+                      {step.body}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-bold text-primary-container mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-on-surface-variant leading-relaxed">
-                    {step.body}
-                  </p>
-                </div>
+                </Reveal>
                 {index < journeySteps.length - 1 && (
                   <span className="hidden lg:flex absolute top-1/2 -right-4 -translate-y-1/2 z-10 text-outline-variant">
                     <span className="material-symbols-outlined">
@@ -396,7 +411,7 @@ export default function Home() {
 
       <section className="py-20 md:py-24">
         <div className="max-w-[1200px] mx-auto px-4 md:px-10">
-          <div className="text-center max-w-2xl mx-auto mb-14">
+          <Reveal className="text-center max-w-2xl mx-auto mb-14">
             <p className="text-secondary font-semibold text-sm uppercase tracking-wider mb-3">
               Gallery
             </p>
@@ -407,32 +422,33 @@ export default function Home() {
               A look at our students, instructors, and vehicles out on the
               road.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[160px] md:auto-rows-[200px]">
-            {galleryImages.map((image) => (
-              <div
+            {galleryImages.map((image, index) => (
+              <Reveal
                 key={image.src}
-                className={`group relative rounded-xl overflow-hidden ambient-shadow ${
-                  image.wide ? "col-span-2 row-span-2" : ""
-                }`}
+                delay={(index % 4) * 100}
+                className={image.wide ? "col-span-2 row-span-2" : ""}
               >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  sizes={
-                    image.wide
-                      ? "(min-width: 768px) 50vw, 100vw"
-                      : "(min-width: 768px) 25vw, 50vw"
-                  }
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/0 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300" />
-                <p className="absolute bottom-3 left-4 text-on-primary font-semibold text-sm md:text-base drop-shadow-sm">
-                  {image.label}
-                </p>
-              </div>
+                <div className="group relative rounded-xl overflow-hidden ambient-shadow h-full">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes={
+                      image.wide
+                        ? "(min-width: 768px) 50vw, 100vw"
+                        : "(min-width: 768px) 25vw, 50vw"
+                    }
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-primary/0 to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300" />
+                  <p className="absolute bottom-3 left-4 text-on-primary font-semibold text-sm md:text-base drop-shadow-sm">
+                    {image.label}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -447,7 +463,7 @@ export default function Home() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/95 via-primary-container/90 to-primary/95" />
-        <div className="relative z-10 max-w-[800px] mx-auto px-4 md:px-10 text-center">
+        <Reveal className="relative z-10 max-w-[800px] mx-auto px-4 md:px-10 text-center">
           <span className="inline-block bg-secondary-container/20 text-secondary-container px-4 py-2 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm border border-secondary-container/30">
             Start Today
           </span>
@@ -496,7 +512,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </section>
     </>
   );
