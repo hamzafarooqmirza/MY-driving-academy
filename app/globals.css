@@ -91,3 +91,112 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(11, 31, 58, 0.08);
 }
+
+/* Lenis smooth scroll — required baseline (see lenis.darkroom.engineering) */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@keyframes route-dash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.animate-route-dash {
+  animation: route-dash 1.2s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-route-dash {
+    animation: none;
+  }
+}
+
+@keyframes soft-glow-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(3%, -4%) scale(1.08);
+  }
+}
+
+.animate-glow-drift {
+  animation: soft-glow-drift 12s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-glow-drift {
+    animation: none;
+  }
+}
+
+.split-line {
+  display: block;
+  overflow: hidden;
+}
+
+.pointer-glow {
+  background: radial-gradient(
+    180px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(254, 174, 44, 0.35),
+    transparent 70%
+  );
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--float-rotate, -6deg));
+  }
+  50% {
+    transform: translateY(-10px) rotate(var(--float-rotate, -6deg));
+  }
+}
+
+.animate-float {
+  animation: float-y 5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float {
+    animation: none;
+  }
+}
+
+@keyframes scroll-hint {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+}
+
+.animate-scroll-hint {
+  animation: scroll-hint 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll-hint {
+    animation: none;
+  }
+}

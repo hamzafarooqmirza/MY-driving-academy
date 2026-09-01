@@ -1,15 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Mail, Phone } from "lucide-react";
 import { legalNav, mainNav, services } from "@/lib/nav";
+import Reveal from "@/components/Reveal";
+import BackToTop from "@/components/BackToTop";
 
 const linkClasses =
-  "text-sm text-on-primary-container/75 hover:text-secondary-fixed transition-colors focus:outline-none focus:ring-2 focus:ring-secondary-fixed rounded-sm";
+  "relative w-fit text-sm text-on-primary-container/75 transition-colors duration-200 hover:text-secondary-fixed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-fixed rounded-sm after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-secondary-fixed after:transition-all after:duration-300 hover:after:w-full";
 
 export default function Footer() {
   return (
     <footer className="w-full bg-primary-container mt-auto">
       <div className="max-w-[1200px] mx-auto px-4 md:px-10 pt-14 pb-8">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-x-8 gap-y-10">
+        <Reveal className="grid grid-cols-2 md:grid-cols-5 gap-x-8 gap-y-10">
           <div className="col-span-2">
             <Link href="/" className="inline-flex items-center gap-3 mb-4">
               <span className="bg-surface rounded-lg p-1.5 shadow-sm shrink-0">
@@ -32,20 +35,16 @@ export default function Footer() {
             <div className="mt-5 space-y-2">
               <a
                 href="mailto:hello@mydrivingacademy.com"
-                className={`flex items-center gap-2 w-fit ${linkClasses}`}
+                className={`flex items-center gap-2 ${linkClasses}`}
               >
-                <span className="material-symbols-outlined text-[18px]">
-                  mail
-                </span>
+                <Mail className="w-[18px] h-[18px]" aria-hidden="true" />
                 hello@mydrivingacademy.com
               </a>
               <a
                 href="tel:+448001234567"
-                className={`flex items-center gap-2 w-fit ${linkClasses}`}
+                className={`flex items-center gap-2 ${linkClasses}`}
               >
-                <span className="material-symbols-outlined text-[18px]">
-                  call
-                </span>
+                <Phone className="w-[18px] h-[18px]" aria-hidden="true" />
                 0800 123 4567
               </a>
             </div>
@@ -73,10 +72,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service.slug}>
-                  <Link
-                    href={`/${service.slug}`}
-                    className={linkClasses}
-                  >
+                  <Link href={`/${service.slug}`} className={linkClasses}>
                     {service.name}
                   </Link>
                 </li>
@@ -98,7 +94,7 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-        </div>
+        </Reveal>
 
         <div className="mt-12 pt-6 border-t border-on-primary-container/10 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-on-primary-container/50">
@@ -110,6 +106,8 @@ export default function Footer() {
           </p>
         </div>
       </div>
+
+      <BackToTop />
     </footer>
   );
 }
