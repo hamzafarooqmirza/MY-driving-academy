@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
+import HeaderSpacer from "@/components/HeaderSpacer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -64,7 +65,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <SmoothScroll />
           <ScrollProgressBar />
           <Navbar />
-          <main className="flex-grow pt-[68px] md:pt-[84px]">{children}</main>
+          <main className="flex-grow">
+            <HeaderSpacer />
+            {children}
+          </main>
           <Footer />
         </MotionConfig>
       </body>
