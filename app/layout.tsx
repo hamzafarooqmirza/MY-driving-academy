@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { MotionConfig } from "motion/react";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -49,7 +52,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} scroll-smooth`}>
+    <html lang="en" className={inter.variable}>
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
@@ -57,9 +60,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
       </head>
       <body className="min-h-screen flex flex-col font-sans antialiased text-on-background bg-background">
-        <Navbar />
-        <main className="flex-grow pt-[68px] md:pt-[84px]">{children}</main>
-        <Footer />
+        <MotionConfig reducedMotion="user">
+          <SmoothScroll />
+          <ScrollProgressBar />
+          <Navbar />
+          <main className="flex-grow pt-[68px] md:pt-[84px]">{children}</main>
+          <Footer />
+        </MotionConfig>
       </body>
     </html>
   );
