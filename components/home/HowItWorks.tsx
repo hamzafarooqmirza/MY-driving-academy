@@ -27,9 +27,11 @@ const ICONS: Record<string, LucideIcon> = {
   explore: Compass,
 };
 
-// A gentle wave connecting 5 evenly-spaced stops across a 1000-wide viewBox.
+// A gentle wave connecting 5 evenly-spaced stops across a 1000-wide viewBox,
+// kept to a small amplitude so it stays within the icon row and never
+// dips down into the step titles/copy below.
 const ROUTE_D =
-  "M 20 60 C 140 20, 240 100, 360 60 S 620 20, 740 60 S 960 100, 980 60";
+  "M 20 12 C 140 3, 240 21, 360 12 S 620 3, 740 12 S 960 21, 980 12";
 
 export default function HowItWorks() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -170,8 +172,8 @@ export default function HowItWorks() {
         {/* Desktop: horizontal journey with a drawn route + moving marker */}
         <div ref={desktopRef} className="hidden lg:block relative">
           <svg
-            viewBox="0 0 1000 120"
-            className="absolute left-0 right-0 top-[52px] w-full h-[120px] text-outline-variant"
+            viewBox="0 0 1000 24"
+            className="absolute left-0 right-0 top-4 w-full h-6 text-outline-variant"
             preserveAspectRatio="none"
             aria-hidden="true"
           >
@@ -193,7 +195,7 @@ export default function HowItWorks() {
               fill="none"
             />
             <g ref={carRef}>
-              <circle r="7" fill="var(--color-secondary-container)" />
+              <circle r="4" fill="var(--color-secondary-container)" />
             </g>
           </svg>
 
